@@ -53,6 +53,8 @@ public class FragmentChoosePicture extends BaseFragment implements BaseListAdapt
                     popupWindows.setPHOTO_CAMERA(PHOTO_CAMERA);
                     popupWindows.setPHOTO_PICK(PHOTO_PICK);
                     popupWindows.setModel(FragmentChoosePicture.this);
+                } else {
+                    adapterDynamicImg.selectPosition(-1);
                 }
             }
 
@@ -63,6 +65,7 @@ public class FragmentChoosePicture extends BaseFragment implements BaseListAdapt
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i < adapterDynamicImg.getCount() - 1) {
                     adapterDynamicImg.selectPosition(i);
+                    return true;
                 }
                 return false;
             }

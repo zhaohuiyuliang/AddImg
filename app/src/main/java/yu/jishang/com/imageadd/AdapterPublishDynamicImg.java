@@ -29,14 +29,18 @@ public class AdapterPublishDynamicImg extends BaseListAdapter<Drawable> {
 
     @Override
     protected void convert(ViewHolder localHoldView, Drawable item, final int position) {
-        ImageView img_delete = localHoldView.getView(R.id.img_delete);
+        final ImageView img_delete = localHoldView.getView(R.id.img_delete);
         ImageView img_publish_dynamic_img = localHoldView.getView(R.id.img_publish_dynamic_img);
         img_publish_dynamic_img.setImageDrawable(item);
-        if (selectPosition == position) {
+
+        if (position == getCount() - 1) {
+            img_delete.setVisibility(View.INVISIBLE);
+        } else if (selectPosition == position) {
             img_delete.setVisibility(View.VISIBLE);
         } else {
             img_delete.setVisibility(View.INVISIBLE);
         }
+
         img_delete.setOnClickListener(new View.OnClickListener() {
 
             @Override
